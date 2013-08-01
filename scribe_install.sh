@@ -13,7 +13,7 @@ pushd thrift
 	git branch -a
 	git checkout 0.8.x # latest version at this time
 	# install jdk and ant if you need the java code generator
-	sudo apt-get install -y openjdk-7-jdk ant
+	sudo apt-get install -y openjdk-6-jdk ant
 	./bootstrap.sh #ignore warning
 	./configure
 	make
@@ -86,9 +86,10 @@ pushd scribe
 popd
 
 echo "DONE. "
-
-cp ~/scribe_install/scribe.conf /usr/local/scribe 
-cp ~/scribe_install/scribed /etc/init.d/
+sudo mkdir -p /usr/local/scribe
+sudo cp ~/scribe_install/scribe.conf /usr/local/scribe 
+sudo cp ~/scribe_install/scribed /etc/init.d/
+sudo chmod a+x /etc/init.d/scribed
 update-rc.d scribed defaults
 echo "Start scribe"
-service scribe start
+/etc/init.d/scribed start
