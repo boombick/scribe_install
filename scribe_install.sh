@@ -85,11 +85,9 @@ pushd scribe
 
 popd
 
-
-
-echo "PHEWWWWW..... finally"
 echo "DONE. "
 
+ 
 
 echo "TESTING THIS BB"
-scribed
+scribed -c ~/scribe_install/scribe.conf
