@@ -87,7 +87,8 @@ popd
 
 echo "DONE. "
 
- 
-
-echo "TESTING THIS BB"
-scribed -c ~/scribe_install/scribe.conf
+cp ~/scribe_install/scribe.conf /usr/local/scribe 
+cp ~/scribe_install/scribed /etc/init.d/
+update-rc.d scribed defaults
+echo "Start scribe"
+service scribe start
